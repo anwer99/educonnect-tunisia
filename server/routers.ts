@@ -204,7 +204,7 @@ export const appRouter = router({
       }),
 
     /**
-     * Get open tutoring requests (Mentor)
+     * Get open tutoring requests (Mentor only)
      */
     getOpenRequests: protectedProcedure
       .input(
@@ -214,10 +214,10 @@ export const appRouter = router({
       )
       .query(async ({ ctx, input }) => {
         const profile = await getUserProfile(ctx.user.id);
-        if (!profile || profile.userType !== "mentor") {
+        if (!profile || (profile.userType !== "mentor" && profile.userType !== "school_admin")) {
           throw new TRPCError({
             code: "FORBIDDEN",
-            message: "Only mentors can view open requests",
+            message: "Only mentors and admins can view open requests",
           });
         }
 
@@ -314,7 +314,7 @@ export const appRouter = router({
       }),
 
     /**
-     * Get available mentors by subject
+     * Get available mentors by subject (for students to request tutoring)
      */
     getAvailableMentors: protectedProcedure
       .input(
@@ -322,7 +322,20 @@ export const appRouter = router({
           subject: z.string(),
         })
       )
-      .query(async ({ input }) => {
+      .query(async ({ input, ctx }) => {
+        // Allow students and admins to view available mentors
+        const profile = await getUserProfile(ctx.user.id);
+        if (profile && profile.userType !== "student" && profile.userType !== "school_admin") {
+          // Mentors can also view available mentors (for testing/debugging)
+          // Parents cannot view available mentors
+          if (profile.userType === "parent") {
+            throw new TRPCError({
+              code: "FORBIDDEN",
+              message: "Parents cannot request tutors",
+            });
+          }
+        }
+        
         const mentors = await getAvailableMentorsBySubject(input.subject);
         return mentors;
       }),
