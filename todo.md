@@ -194,3 +194,77 @@
 - **Temps Réel** : WebSocket pour notifications et matching
 - **Multi-rôles** : 4 rôles distincts avec permissions différentes
 
+
+
+## Phase 13: Landing Page & Navigation
+
+### Homepage
+- [x] Créer page d'accueil avec présentation EduConnect
+- [x] Ajouter navigation vers /auth, /request-tutor, /mentor-dashboard, /wallet
+- [x] Créer hero section avec CTA "Commencer"
+- [x] Ajouter section "Comment ça marche" avec 4 rôles
+- [ ] Ajouter testimonials d'étudiants/mentors
+
+### Navigation
+- [x] Créer composant Header avec logo et menu
+- [x] Ajouter bouton profil/logout dans header
+- [x] Créer composant Footer avec liens utiles
+- [x] Implémenter navigation persistante entre pages
+
+## Phase 14: Student Sessions Page
+
+- [x] Créer page /sessions pour voir sessions actives
+- [x] Afficher historique des demandes (open, accepted, completed)
+- [x] Montrer détails session (mentor, sujet, durée, coût)
+- [x] Ajouter bouton pour évaluer mentor (rating)
+- [ ] Afficher statut paiement pour chaque session
+
+## Phase 15: Parent-Teacher Portal
+
+- [ ] Créer page /teacher-dashboard pour enseignants
+- [ ] Lister étudiants de l'enseignant
+- [ ] Implémenter formulaire "Daily Remarks" avec toggle visibilité
+- [ ] Créer page /parent-portal pour parents
+- [ ] Afficher notes visibles pour enfants
+- [ ] Ajouter historique notes par date/matière
+
+## Phase 16: Social Feed
+
+- [ ] Créer page /feed pour feed social
+- [ ] Implémenter création de posts (achievements, milestones)
+- [ ] Ajouter système de likes et commentaires
+- [ ] Afficher posts avec pagination
+- [ ] Ajouter filtres (all, followed, class-only)
+
+## Phase 17: Real-time Features
+
+- [ ] Implémenter WebSocket pour notifications temps réel
+- [ ] Ajouter polling fallback pour navigateurs sans WebSocket
+- [ ] Créer système notifications in-app
+- [ ] Ajouter Web Push API pour notifications browser
+- [ ] Implémenter opt-in/opt-out notifications
+
+## Phase 18: Mobile Optimization
+
+- [ ] Tester sur appareils mid-range (iPhone 6, Samsung A10)
+- [ ] Optimiser images avec lazy loading
+- [ ] Réduire bundle size (minification, tree-shaking)
+- [ ] Implémenter service worker pour offline mode
+- [ ] Ajouter compression gzip pour assets
+
+## Phase 19: Internationalization
+
+- [ ] Configurer système i18n (Français/Anglais/Arabe)
+- [ ] Traduire tous les labels UI
+- [ ] Ajouter sélecteur de langue dans settings
+- [ ] Supporter RTL pour Arabe
+- [ ] Tester sur tous les langages
+
+## Phase 20: Testing & QA
+
+- [ ] Écrire tests unitaires pour db.ts
+- [ ] Écrire tests pour routers tRPC
+- [ ] Tester flow complet: auth → request → accept → payment
+- [ ] Tester conversion TND/EduCoins
+- [ ] Tester prévention double-dépense
+- [ ] Tester permissions par rôle

@@ -9,6 +9,7 @@ import Auth from "./pages/Auth";
 import RequestTutor from "./pages/RequestTutor";
 import MentorDashboard from "./pages/MentorDashboard";
 import Wallet from "./pages/Wallet";
+import StudentSessions from "./pages/StudentSessions";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -19,6 +20,7 @@ function Router() {
       <Route path={"/request-tutor"} component={RequestTutor} />
       <Route path={"/mentor-dashboard"} component={MentorDashboard} />
       <Route path={"/wallet"} component={Wallet} />
+      <Route path={"/sessions"} component={StudentSessions} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
