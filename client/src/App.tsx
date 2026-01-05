@@ -10,6 +10,9 @@ import RequestTutor from "./pages/RequestTutor";
 import MentorDashboard from "./pages/MentorDashboard";
 import Wallet from "./pages/Wallet";
 import StudentSessions from "./pages/StudentSessions";
+import Feed from "./pages/Feed";
+import FindTutor from "./pages/FindTutor";
+import School from "./pages/School";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
@@ -21,6 +24,9 @@ function Router() {
       <Route path={"/mentor-dashboard"} component={MentorDashboard} />
       <Route path={"/wallet"} component={Wallet} />
       <Route path={"/sessions"} component={StudentSessions} />
+      <Route path={"/feed"} component={Feed} />
+      <Route path={"/find-tutor"} component={FindTutor} />
+      <Route path={"/school"} component={School} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
