@@ -5,12 +5,20 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import Auth from "./pages/Auth";
+import RequestTutor from "./pages/RequestTutor";
+import MentorDashboard from "./pages/MentorDashboard";
+import Wallet from "./pages/Wallet";
 
 function Router() {
   // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       <Route path={"/"} component={Home} />
+      <Route path={"/auth"} component={Auth} />
+      <Route path={"/request-tutor"} component={RequestTutor} />
+      <Route path={"/mentor-dashboard"} component={MentorDashboard} />
+      <Route path={"/wallet"} component={Wallet} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />
